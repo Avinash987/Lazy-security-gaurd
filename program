@@ -6,7 +6,7 @@ int main(void)
 unsigned long long int N;  // upto order  10^6
 do{
 cin>>N;
-}while(N >= 0)
+}while(N < 0)
 unsigned long long int temp = sqrt(N);
 unsigned long long int squareorder = N/temp;
 unsigned long long int order = N % temp;
