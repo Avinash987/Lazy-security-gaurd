@@ -6,10 +6,29 @@ int main(void)
 unsigned long long int N;  // upto order  10^6
 do{
 cin>>N;
-}while(N < 0)
-unsigned long long int temp = sqrt(N);
-unsigned long long int squareorder = N/temp;
-unsigned long long int order = N % temp;
-unsigned long long int perimeter = 4 * squareorder + 4 * order - 2 * order * order;
-cout<<perimeter;
+}while(N < 0);
+unsigned long long int squareorder = sqrt(N);
+unsigned long long int order = N - (squareorder * squareorder);
+unsigned long long int perimeter ;
+if(N > 3)
+{
+if(order == 0)
+    perimeter = 4 * squareorder;
+else if(order > squareorder)
+    perimeter = 4 * squareorder + 4 * order -  2 * order - 2 * (order - 1) + 2;
+else
+    perimeter = 4 * squareorder + 4 * order -  2 * order - 2 * (order - 1);
+}
+else
+{
+    switch(N)
+    {
+        case 0 : perimeter = 0; break;
+        case 1 : perimeter = 4; break;
+        case 2 : perimeter = 6; break;
+        case 3 : perimeter = 8; break;
+    };
+}
+cout<<perimeter<<endl;
+return 0;
 }
